@@ -165,8 +165,17 @@ const prepareProject =
 		{
 			// rethrows anything but entity not found
 			if( e.code !== 'ENOENT' ) throw e;
-			await fs.mkdir( repoDir );
+			await fs.mkdir( repoDir, { recursive: true } );
 			await git.init( repoDir );
+		}
+
+		// creates the hash directory
+		try{ await fs.stat( hashDir ); }
+		catch( e )
+		{
+			// rethrows anything but entity not found
+			if( e.code !== 'ENOENT' ) throw e;
+			await fs.mkdir( hashDir, { recursive: true } );
 		}
 
 		// creates the pad (git clone of repository)
@@ -175,7 +184,7 @@ const prepareProject =
 		{
 			// rethrows anything but entity not found
 			if( e.code !== 'ENOENT' ) throw e;
-			await fs.mkdir( padDir );
+			await fs.mkdir( padDir, { recursive: true } );
 			await git.clone( repoDir, padsDir );
 		}
 
@@ -185,7 +194,7 @@ const prepareProject =
 		{
 			// rethrows anything but entity not found
 			if( e.code !== 'ENOENT' ) throw e;
-			await fs.mkdir( blueDir );
+			await fs.mkdir( blueDir, { recursive: true } );
 		}
 	}
 
@@ -256,9 +265,9 @@ const start =
 	async function( )
 {
 	// creates the working dirs, ignores already exisiting errors
-	for( let dir of [ reposDir, padsDir, bluesDir ] )
+	for( let dir of [ reposDir, padsDir, bluesDir, hashDir ] )
 	{
-		try{ await fs.mkdir( dir ); }
+		try{ await fs.mkdir( dir, { recursive: true } ); }
 		catch( e ) { if( e.code !== 'EEXIST' ) throw e; }
 	}
 
