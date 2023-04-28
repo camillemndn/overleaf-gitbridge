@@ -5,14 +5,17 @@
   "description": "another overleaf git bridge",
   "license": "AGPL-3.0-only",
   "main": "./src/server.js",
+  "bin": {
+    "overleaf-gitbridge": "./src/server.js"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/axkibe/olgitbridge"
+    "url": "git+https://github.com/camillemndn/overleaf-gitbridge"
   },
   "bugs": {
-    "url": "https://gitlab.com/axkibe/olgitbridge/issues"
+    "url": "https://github.com/camillemndn/overleaf-gitbridge/issues"
   },
-  "homepage": "https://gitlab.com/axkibe/olgitbridge#readme",
+  "homepage": "https://github.com/camillemndn/overleaf-gitbridge#readme",
   "dependencies": {
     "active-x-obfuscator": "^0.0.2",
     "axios": "^0.24.0",
