@@ -1,4 +1,4 @@
-# olgitbridge
+# overleaf-gitbridge (forked from [Axel Kittenberger's olgitbridge](https://gitlab.com/axkibe/olgitbridge))
 
 Another Overleaf git bridge. This hack allows you to pull and push changes via git on an Overleaf Community Edition (CE) or Pro server, like shown in the [official Overleaf SaaS announcement](https://www.overleaf.com/blog/the-git-bridge-in-overleaf-v2-is-here). Just use `git clone http://your.server.invalid/<project-id>`, where your project ID can be seen from your Overleaf instance.
 
