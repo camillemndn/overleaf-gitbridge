@@ -4,7 +4,7 @@
 const aspawn = require( './aspawn' );
 
 // git binary to call
-const gitBinary = '/usr/bin/git';
+const gitBinary = 'git';
 
 /*
 | Clones a repository from a file url.
@@ -46,15 +46,15 @@ const save =
 	async function( count, dir, message )
 {
 	console.log( count, 'git staging all changes' );
-	try { await aspawn( '/usr/bin/git', [ 'add', '--all' ], { cwd: dir }); }
+	try { await aspawn( 'git', [ 'add', '--all' ], { cwd: dir }); }
 	catch( e ) { console.log( e ); }
 
 	console.log( count, 'git commit' );
-	try { await aspawn( '/usr/bin/git', [ 'commit', '-m', message ], { cwd: dir }); }
+	try { await aspawn( 'git', [ 'commit', '-m', message ], { cwd: dir }); }
 	catch( e ) { console.log( e ); }
 
 	console.log( count, 'git push' );
-	try { await aspawn( '/usr/bin/git', [ 'push' ], { cwd: dir } ); }
+	try { await aspawn( 'git', [ 'push' ], { cwd: dir } ); }
 	catch( e ) { console.log( e ); }
 };
 
