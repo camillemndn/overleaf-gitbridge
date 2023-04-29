@@ -50,7 +50,7 @@ const save =
 	catch( e ) { console.log( e ); }
 
 	console.log( count, 'git commit' );
-	try { await aspawn( 'git', [ 'commit', '-m', message ], { cwd: dir }); }
+	try { await aspawn( 'git', [ '-c', 'user.name="Overleaf Git Bridge"', '-c', 'user.email=""', 'commit', '-m', message ], { cwd: dir }); }
 	catch( e ) { console.log( e ); }
 
 	console.log( count, 'git push' );
